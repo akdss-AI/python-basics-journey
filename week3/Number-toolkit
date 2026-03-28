@@ -1,0 +1,72 @@
+##a small ptogram runs functions on numbers
+def check_even_odd():
+    num=int(input('Enter the number'))
+    if(num%2==0):
+        print('Number is even')
+    else:
+        print('Number is odd')
+def check_prime():
+    num=int(input('Enter the number'))
+    if num <= 1:
+        print('Number is not prime')
+        return
+    elif num == 2:
+        print('Number is prime')
+        return
+    elif num % 2 == 0:
+        print('Number is not prime')
+        return
+    for i in range(3, int(num**0.5) + 1, 2): # Optimized prime check
+        if num % i == 0:
+            print('Number is not prime')
+            return
+    print('Number is prime')
+def factorial():
+    num=int(input('Enter the number'))
+    if(num < 0):
+        print('Factorial not defined for negative numbers')
+    elif(num == 0):
+        print('Factorial is 1')
+    else:
+        result = 1
+        for i in range(1, num + 1):
+            result *= i
+        print('Factorial is', result)
+def find_largest():
+    num_str = input('Enter numbers separated by commas (e.g., 10,20,5): ')
+    numbers = [int(n.strip()) for n in num_str.split(',')]
+    if not numbers:
+        print('No numbers entered.')
+        return
+
+    largest_num = numbers[0]
+    for num in numbers:
+        if num > largest_num:
+            largest_num = num
+    print(f'{largest_num} is the largest')
+
+def main_menu():
+    while True:
+        print('''\nMENU FUNCTIONS
+1.EVEN-ODD CHECK
+2.PRIME-CHECK
+3.FACTORIAL
+4.LARGEST-NUMBER-CHECK
+5.EXIT'''
+             )
+        choice=int(input('Enter the number you chose from menu: '))
+        if(choice==1):
+            check_even_odd()
+        elif(choice==2):
+            check_prime()
+        elif(choice==3):
+            factorial()
+        elif(choice==4):
+            find_largest()
+        elif(choice==5):
+            print('Exiting program. Goodbye!')
+            break # Exit the while loop
+        else:
+            print('Invalid choice. Please enter a number between 1 and 5.')
+
+main_menu()
