@@ -1,0 +1,15 @@
+## LARGEST NUMBER IN A LIST 
+#input
+largest=0
+list=(1,7,10)
+#function
+def largest(a,b,c):
+    if(a>b) & (a>c):
+      print("largest=", a)
+    elif(b>a)&(b>c):
+      print("largest is =",b)
+    else:
+        largest=c
+    return largest
+    #output
+print (largest(1,7,10))
